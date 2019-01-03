@@ -49,6 +49,11 @@ public class LevelManagementData : ScriptableObject {
 
     private void OnEnable()
     {
+        idpuertaTemp = -1;
+        if (recolectables <=0)
+        {
+            recolectables = 4;
+        }
         cambio = false;
         pjPuntos = puntajito;
         matrizRef = new int[alto, ancho];
@@ -65,6 +70,8 @@ public class LevelManagementData : ScriptableObject {
 
         matrizRef[1, 4] = 6;
         matrizRef[y, 4] = 5;
+
+        matrizRef[2, 5] = 8;
 
 
 
@@ -89,7 +96,7 @@ public class LevelManagementData : ScriptableObject {
             
         }
 
-        puertas = new int[num];
+        puertas = new int[num*2];
         idPuerta = num;
         num = 0;
 
@@ -112,7 +119,9 @@ public class LevelManagementData : ScriptableObject {
     }
 
     public int darId() {
+        Debug.Log(idpuertaTemp);
         idpuertaTemp++;
+        Debug.Log(idpuertaTemp);
         return idpuertaTemp;
     }
 
@@ -170,7 +179,6 @@ public class LevelManagementData : ScriptableObject {
             if (minutes < 0)
             {
                 timeShow = "00:00";
-
             }
         }
         return timeShow;
@@ -261,6 +269,11 @@ public class LevelManagementData : ScriptableObject {
     {
         return matrizRef;
     }
+    public void setMatriz(int[,] matriz)
+    {
+        this.matrizRef = matriz;
+    }
+
 
     public int[] getPuntos()
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="enemigos y recoletables")]
 public class RecolectableObstaculos : ScriptableObject {
 
-    public Sprite[] Recolectables;
+
     public Sprite[] Obstaculos;
 
     private void OnEnable()

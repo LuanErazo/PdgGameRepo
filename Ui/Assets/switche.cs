@@ -47,6 +47,13 @@ public class switche : MonoBehaviour {
         return puertaActive;
     }
 
+    public void setActive(bool active) {
+        this.puertaActive = active;
+    }
+
+    
+
+    
     // Use this for initialization
     void Start () {
 		

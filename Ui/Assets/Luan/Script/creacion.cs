@@ -27,7 +27,6 @@ public class creacion : MonoBehaviour
     private void Awake()
     {
         vectores = data.getVectors();
-        imgRecolect = imgs.Recolectables;
         imgObs = imgs.Obstaculos;
         matriz = data.getmatriz();
 
@@ -64,7 +63,6 @@ public class creacion : MonoBehaviour
                     int random = Random.Range(0, 3);
                     GameObject recolectableTemp = Instantiate(recolectable, LevelManagementData.vector(vectores[i, j]), Quaternion.identity);
                     recolectableTemp.GetComponent<Transform>().SetParent(transform.Find("Recolectables").transform);
-                    recolectableTemp.GetComponent<SpriteRenderer>().sprite = (imgRecolect[random]);
                     recolectableTemp.GetComponent<recolectable>().puntaje = data.getPuntos()[random];
 
 

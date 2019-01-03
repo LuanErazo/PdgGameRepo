@@ -12,16 +12,20 @@ public class puerta : MonoBehaviour {
     private int abrir = Animator.StringToHash("abrir");
     private int cerrar = Animator.StringToHash("cerrar");
 
+    private int[,] matriz;
+
     // Use this for initialization
     void Start()
     {
         anim = GetComponent<Animator>();
         id = data.darId();
+        matriz = data.getmatriz();
     }
 
     public void ReceiveTrigger(ref Collider2D col)
     {
         OnTriggerEnter2D(col);
+        OnTriggerExit2D(col);
     }
 
 
@@ -30,11 +34,10 @@ public class puerta : MonoBehaviour {
 
         if (switche.name.Contains("SwitchStatic"))
         {
-            int[,] matriz = data.getmatriz();
             int[] posPuerta = data.getPuerta(id);
-
             if (switche.getActive())
             {
+
                 matriz[posPuerta[0], posPuerta[1]] = 0;
                 anim.SetBool(abrir, true);
 
@@ -53,6 +56,12 @@ public class puerta : MonoBehaviour {
 
 
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        data.setMatriz(matriz);
+    }
+
 
     // Update is called once per frame
     void Update()
