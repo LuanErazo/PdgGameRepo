@@ -13,7 +13,7 @@ public class LevelManagementData : ScriptableObject {
     public int alto;
 
     public static int pjPuntos;
-    public int puntajito;
+    public int puntajito = 0;
     public bool disparo = false;
 
 
