@@ -11,19 +11,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: MouseMemoirs-Regular SDF
   m_EditorClassIdentifier: 
-  hashCode: -967590619
-  material: {fileID: 21948363937818126}
-  materialHashCode: -364202738
+  hashCode: 0
+  material: {fileID: 21496600346692394}
+  materialHashCode: 0
   fontAssetType: 1
   m_fontInfo:
     Name: Mouse Memoirs
     PointSize: 90
-    Scale: 1
+    Scale: 0
     CharacterCount: 97
     LineHeight: 103.0625
     Baseline: 0
     Ascender: 84.25
-    CapHeight: 63.125
+    CapHeight: 0
     Descender: -18.8125
     CenterLine: 0
     SuperscriptOffset: 84.25
@@ -33,19 +33,19 @@ MonoBehaviour:
     UnderlineThickness: 1.8017578
     strikethrough: 23.795454
     strikethroughThickness: 1.8017578
-    TabWidth: 148.75
+    TabWidth: 0
     Padding: 5
     AtlasWidth: 512
     AtlasHeight: 512
-  atlas: {fileID: 28900436694068626}
+  atlas: {fileID: 28970404623534514}
   m_glyphInfoList:
   - id: 32
     x: 6
     y: 517
-    width: 14.875
-    height: 103.0625
+    width: 0
+    height: 0
     xOffset: 0
-    yOffset: 84.25
+    yOffset: 0
     xAdvance: 14.875
     scale: 1
   - id: 33
@@ -931,7 +931,7 @@ MonoBehaviour:
   fallbackFontAssets: []
   m_CreationSettings:
     sourceFontFileName: 
-    sourceFontFileGUID: f5a08bbe08001e043ada45664c1890b5
+    sourceFontFileGUID: e683090e8524b5943b2bb742965532d1
     pointSizeSamplingMode: 0
     pointSize: 90
     padding: 5
@@ -973,7 +973,7 @@ MonoBehaviour:
   boldSpacing: 7
   italicStyle: 35
   tabSize: 10
---- !u!21 &21948363937818126
+--- !u!21 &21496600346692394
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -1004,7 +1004,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 28900436694068626}
+        m_Texture: {fileID: 28970404623534514}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OutlineTex:
@@ -1039,9 +1039,9 @@ Material:
     - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 0.8333333
-    - _ScaleRatioB: 0.6770833
-    - _ScaleRatioC: 0.609985
+    - _ScaleRatioA: 1
+    - _ScaleRatioB: 1
+    - _ScaleRatioC: 1
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -1053,9 +1053,9 @@ Material:
     - _StencilWriteMask: 255
     - _TextureHeight: 512
     - _TextureWidth: 512
-    - _UnderlayDilate: 0.55
-    - _UnderlayOffsetX: 0.56
-    - _UnderlayOffsetY: -0.45
+    - _UnderlayDilate: 0
+    - _UnderlayOffsetX: 0
+    - _UnderlayOffsetY: 0
     - _UnderlaySoftness: 0
     - _VertexOffsetX: 0
     - _VertexOffsetY: 0
@@ -1065,14 +1065,14 @@ Material:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
     - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GlowColor: {r: 0, g: 0, b: 0, a: 0.972549}
+    - _GlowColor: {r: 0, g: 1, b: 0, a: 0.5}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.5}
---- !u!28 &28900436694068626
+--- !u!28 &28970404623534514
 Texture2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
