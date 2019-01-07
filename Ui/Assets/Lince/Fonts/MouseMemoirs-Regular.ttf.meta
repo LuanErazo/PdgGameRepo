@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: e683090e8524b5943b2bb742965532d1
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Mouse Memoirs
+  fontNames:
+  - Mouse Memoirs
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d83bab581766f114db2080f202d255e2, type: 3}
+  - {fileID: 12800000, guid: f5a08bbe08001e043ada45664c1890b5, type: 3}
+  - {fileID: 12800000, guid: 89f6f1de034de2a41b8f1aab743150b2, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

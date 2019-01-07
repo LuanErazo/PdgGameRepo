@@ -30,44 +30,11 @@ public class Weapon : MonoBehaviour
     IEnumerator shoot()
 
     {
-        
-
-                reflectionRay(firepoint.position,firepoint.up,lenghtRay);
-
-        //if (hitInfo)
-        //{
-
-        //    if (hitInfo.transform.tag == "reflector")
-        //    {
-        //        //reflector = hitInfo.transform.GetComponent<Reflector>();
-            
-        //    }
 
 
-
-
-        //    Pj pj = hitInfo.transform.GetComponent<Pj>();
-        //    if (pj != null)
-        //    {
-        //        Debug.Log(pj.name);
-
-        //    }
-        //    //Instantiate(animateEffect,hitInfo.point, Quaternion.identity);
-        //    line.SetPosition(0, firepoint.position);
-        //    line.SetPosition(1, hitInfo.point);
-
-        //}
-        //else
-        //{
-
-        //    line.SetPosition(0, firepoint.position);
-        //    line.SetPosition(1, firepoint.position + firepoint.up * 100);
-        //}
-
-        //line.enabled = true;
+        reflectionRay(firepoint.position, firepoint.up, lenghtRay);
 
         yield return new WaitForSeconds(.8f);
-        //line.enabled = false;
         clean();
     }
 
