@@ -9,6 +9,9 @@ public class switche : MonoBehaviour {
     public GameObject puerta;
 
     private bool puertaActive = false;
+    private int id;
+
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -56,7 +59,7 @@ public class switche : MonoBehaviour {
     
     // Use this for initialization
     void Start () {
-		
+		this.id = puerta.GetComponent<puerta>().id;
 	}
 	
 	// Update is called once per frame

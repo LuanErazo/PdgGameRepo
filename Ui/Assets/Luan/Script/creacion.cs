@@ -81,17 +81,16 @@ public class creacion : MonoBehaviour
 
 
                 }
-                else if (matriz[i, j] == 7) // switche
-                {
-                    GameObject switcheTemp = Instantiate(switche, LevelManagementData.vector(vectores[i, j]), Quaternion.identity);
-                    switcheTemp.GetComponent<Transform>().parent = GetComponentsInChildren<Transform>()[1];
-
-
-                }
-                else if (matriz[i, j] == 8) //puerta
+                else if (matriz[i, j] == 7) // puerta
                 {
                     GameObject puertaTemp = Instantiate(puertaStatic, LevelManagementData.vector(vectores[i, j]), Quaternion.identity);
                     puertaTemp.GetComponent<Transform>().parent = GetComponentsInChildren<Transform>()[1];
+
+
+                }
+                else if (matriz[i, j] == 8) //switche
+                {
+                    
 
 
                 }
