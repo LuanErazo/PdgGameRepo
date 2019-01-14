@@ -20,7 +20,7 @@ public class LevelManagementData : ScriptableObject {
     private int[] recolectPuntos = new int[3];
 
     public int turnos;
-    public int recolectables;
+    public int recolectables =1;
     public int tiempoxTurno;
     public int obstaculos;
     public int nivel;
@@ -50,11 +50,11 @@ public class LevelManagementData : ScriptableObject {
                                                { 2, 3, 0, 2, 0, 2, 2, 3, 0, 2},
                                                { 3, 0, 2, 3, 0, 0, 0, 0, 2, 2}};
 
-    private int[,] matrizLv2 = new int[5, 10] {{ 0, 0, 0, 2, 0, 0, 0, 0, 0, 0},
-                                               { 0, 0, 0, 2, 0, 2, 0, 0, 3, 0},
-                                               { 0, 0, 0, 2, 0, 0, 0, 0, 0, 3},
-                                               { 0, 0, 0, 0, 0, 2, 0, 3, 0, 0},
-                                               { 2, 2, 0, 0, 0, 2, 0, 5, 0, 0} };
+    private int[,] matrizLv2 = new int[5, 10] {{ 0, 0, 0, 0, 3, 0, 2, 3, 0, 0},
+                                               { 0, 0, 2, 0, 0, 0, 2, 0, 0, 0},
+                                               { 0, 0, 0, 0, 0, 0, 7, 0, 3, 0},
+                                               { 0, 0, 2, 0, 0, 0, 2, 0, 0, 0},
+                                               { 0, 0, 0, 0, 0, 0, 2, 0, 0, 0} };
 
     private int[,] matrizLv3 = new int[5, 10] {{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                                                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -165,9 +165,7 @@ public class LevelManagementData : ScriptableObject {
     }
 
     public int darId() {
-        Debug.Log(idpuertaTemp);
         idpuertaTemp++;
-        Debug.Log(idpuertaTemp);
         return idpuertaTemp;
     }
 

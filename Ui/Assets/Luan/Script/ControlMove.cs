@@ -120,6 +120,10 @@ public class ControlMove : MonoBehaviour
                     matriz[y - 1, x] = 0;
 
                 }
+                else
+                {
+                        
+                }
             }
             else if (y - 1 > -1 && personaje.getmV() == -1)
             {

@@ -64,8 +64,17 @@ public class creacion : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        crearTiles();
+        // data.creacion();
+        if (gameObject.scene.name.Contains("1"))
+        {
+            crear();
+        }
 
-       // data.creacion();
+    }
+
+    private void crear()
+    {
 
         for (int i = 0; i < data.alto; i++)
         {
@@ -117,7 +126,7 @@ public class creacion : MonoBehaviour
                 }
                 else if (matriz[i, j] == 8) //switche
                 {
-                    
+
 
 
                 }
@@ -125,8 +134,22 @@ public class creacion : MonoBehaviour
             }
         }
 
+    }
 
+    private void crearTiles()
+    {
 
+        for (int i = 0; i < data.alto; i++)
+        {
+
+            for (int j = 0; j < data.ancho; j++)
+            {
+
+                GameObject casillaTemp = Instantiate(casilla, LevelManagementData.vector(vectores[i, j]), Quaternion.identity);
+                casillaTemp.GetComponent<Transform>().parent = GetComponentsInChildren<Transform>()[0];
+
+            }
+        }
 
     }
 }
