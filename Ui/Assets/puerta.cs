@@ -19,7 +19,31 @@ public class puerta : MonoBehaviour {
     {
         anim = GetComponent<Animator>();
         id = data.darId();
-        matriz = data.getmatriz();
+        if (gameObject.scene.name.Contains("1"))
+        {
+            matriz = data.getmatriz(1);
+
+        }
+        else if (gameObject.scene.name.Contains("2"))
+        {
+            matriz = data.getmatriz(2);
+
+        }
+        else if (gameObject.scene.name.Contains("3"))
+        {
+            matriz = data.getmatriz(3);
+
+        }
+        else if (gameObject.scene.name.Contains("4"))
+        {
+            matriz = data.getmatriz(4);
+
+        }
+        else
+        {
+            matriz = data.getmatriz(0);
+
+        }
     }
 
     public void ReceiveTrigger(ref Collider2D col)
@@ -45,7 +69,7 @@ public class puerta : MonoBehaviour {
             }
             else
             {
-                matriz[posPuerta[0], posPuerta[1]] = 8;
+                matriz[posPuerta[0], posPuerta[1]] = 7;
 
                 anim.SetBool(abrir, false);
                 anim.SetBool(cerrar, true);

@@ -39,20 +39,45 @@ public class LevelManagementData : ScriptableObject {
 
     private int[] puertas;
 
-    //private int[,] matrizRef = new int[5, 8] { { 0, 0, 0, 0, 0, 0, 0, 0}, 
-    //                                           { 0, 0, 0, 0, 0, 0, 0, 0 }, 
-    //                                           { 0, 0, 0, 0, 0, 0, 0, 0 },
-    //                                           { 0, 0, 0, 0, 0, 0, 0, 0 },
-    //                                           { 0, 0, 0, 0, 0, 0, 0, 0 } };
 
 
 
+
+
+    private int[,] matrizLv1 = new int[5, 10] {{ 0, 0, 0, 0, 0, 0, 0, 0, 3, 2},
+                                               { 2, 2, 0, 3, 0, 2, 0, 0, 0, 2},
+                                               { 3, 0, 0, 2, 0, 3, 0, 0, 0, 2},
+                                               { 2, 3, 0, 2, 0, 2, 2, 3, 0, 2},
+                                               { 3, 0, 2, 3, 0, 0, 0, 0, 2, 2}};
+
+    private int[,] matrizLv2 = new int[5, 10] {{ 0, 0, 0, 2, 0, 0, 0, 0, 0, 0},
+                                               { 0, 0, 0, 2, 0, 2, 0, 0, 3, 0},
+                                               { 0, 0, 0, 2, 0, 0, 0, 0, 0, 3},
+                                               { 0, 0, 0, 0, 0, 2, 0, 3, 0, 0},
+                                               { 2, 2, 0, 0, 0, 2, 0, 5, 0, 0} };
+
+    private int[,] matrizLv3 = new int[5, 10] {{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                               { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                               { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                               { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                               { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
+
+    private int[,] matrizLv4 = new int[5, 10] {{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                               { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                               { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                               { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                               { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0} };                                         
     private void OnEnable()
     {
+        disparo = false;
         idpuertaTemp = -1;
         if (recolectables <=0)
         {
             recolectables = 4;
+        }
+        if (turnos <= 0)
+        {
+            turnos = 5;
         }
         cambio = false;
         pjPuntos = puntajito;
@@ -71,7 +96,7 @@ public class LevelManagementData : ScriptableObject {
         matrizRef[1, 4] = 6;
         matrizRef[y, 4] = 5;
 
-        matrizRef[2, 5] = 8;
+        matrizRef[2, 5] = 7;
 
 
 
@@ -86,7 +111,7 @@ public class LevelManagementData : ScriptableObject {
             {
                 Vector2 vectorTemp = new Vector2(initX + (j * offset), initY + (i * offset));
                 vectores[i, j] = vectorTemp;
-                if (matrizRef[i, j] == 8)
+                if (matrizRef[i, j] == 7)
                 {
                     num++;
                 }
@@ -104,7 +129,7 @@ public class LevelManagementData : ScriptableObject {
         {
             for (int j = 0; j < ancho; j++)
             {
-                if (matrizRef[i, j] == 8)
+                if (matrizRef[i, j] == 7)
                 {
                     ubicacionPuertas(i, j, num);
                     num++;
@@ -116,6 +141,27 @@ public class LevelManagementData : ScriptableObject {
         }
 
 
+    }
+
+
+    public void contarRecolectables(int[,] matriz) {
+        int cont = 0;
+        for (int i = 0; i < alto; i++)
+        {
+
+            for (int j = 0; j < ancho; j++)
+            {
+
+                if (matriz[i, j] == 3) // recolectable
+                {
+                    cont++;
+                }
+                
+
+            }
+        }
+
+        recolectables = cont;
     }
 
     public int darId() {
@@ -265,10 +311,34 @@ public class LevelManagementData : ScriptableObject {
         return vectores;
     }
 
-    public int[,] getmatriz()
+    public int[,] getmatriz(int id)
     {
+        if (id == 1)
+        {
+            return matrizLv1;
+        }
+        else if (id == 2)
+        {
+            return matrizLv2;
+        }
+        else if (id == 3)
+        {
+            return matrizLv3;
+
+        }
+        else if (id == 4)
+        {
+            return matrizLv4;
+
+        }
+        else
+        {
         return matrizRef;
+
+        }
     }
+
+  
     public void setMatriz(int[,] matriz)
     {
         this.matrizRef = matriz;

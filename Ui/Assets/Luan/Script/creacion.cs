@@ -28,7 +28,34 @@ public class creacion : MonoBehaviour
     {
         vectores = data.getVectors();
         imgObs = imgs.Obstaculos;
-        matriz = data.getmatriz();
+
+        if (gameObject.scene.name.Contains("1"))
+        {
+        matriz = data.getmatriz(1);
+
+        } else if (gameObject.scene.name.Contains("2"))
+        {
+            matriz = data.getmatriz(2);
+
+        }
+        else if (gameObject.scene.name.Contains("3"))
+        {
+            matriz = data.getmatriz(3);
+
+        }
+        else if (gameObject.scene.name.Contains("4"))
+        {
+            matriz = data.getmatriz(4);
+
+        }
+        else
+        {
+            matriz = data.getmatriz(0);
+
+        }
+
+
+        data.contarRecolectables(matriz);
 
 
     }
@@ -38,7 +65,7 @@ public class creacion : MonoBehaviour
     void Start()
     {
 
-        data.creacion();
+       // data.creacion();
 
         for (int i = 0; i < data.alto; i++)
         {
@@ -51,7 +78,7 @@ public class creacion : MonoBehaviour
 
 
 
-                if (matriz[i, j] == 2)
+                if (matriz[i, j] == 2) // obstaculo
                 {
                     GameObject obstaculoTemp = Instantiate(obstaculo, LevelManagementData.vector(vectores[i, j]), Quaternion.identity);
                     obstaculoTemp.GetComponent<Transform>().parent = GetComponentsInChildren<Transform>()[1];

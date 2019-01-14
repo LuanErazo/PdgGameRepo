@@ -15,6 +15,7 @@ MonoBehaviour:
     categories:
     - categoryName: Ingame
       itemNames:
+      - ~Element Name~
       - Decoration
       - GameOver
       - Interactivos
@@ -25,11 +26,16 @@ MonoBehaviour:
         m_Value: 0
     - categoryName: Menu
       itemNames:
+      - Construccion
+      - GameModes
       - inicio
+      - Instrucciones
+      - Niveles
+      - Obstaculos
       isExpanded:
-        m_Target: 0
+        m_Target: 1
         speed: 2
-        m_Value: 0
+        m_Value: 1
     - categoryName: Uncategorized
       itemNames:
       - ~Element Name~
@@ -84,7 +90,11 @@ MonoBehaviour:
         m_Value: 0
     - categoryName: Ingame
       itemNames:
+      - Atras
+      - Construir
+      - Jugar
       - retry
+      - Siguiente
       isExpanded:
         m_Target: 1
         speed: 2

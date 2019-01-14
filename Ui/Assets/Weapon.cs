@@ -14,29 +14,68 @@ public class Weapon : MonoBehaviour
     private int lines;
     public int lenghtRay = 20;
 
+    private bool rotate = false;
+
+    
 
     // Update is called once per frame
     void Update()
     {
-            if (data.disparo) {
+        if (data.disparo)
+        {
+            transform.GetChild(2).gameObject.SetActive(false);
+            rotate = false;
             StartCoroutine(shoot());
-            }
+        }
+        else
+        {
+            transform.GetChild(2).gameObject.SetActive(true);
+
+            //if (rotate)
+            //{
+            //    StartCoroutine(rotate90());
+            //    rotate = false;
+            //}
+
+        }
+
         if (Input.GetButtonDown("Fire2"))
         {
+            StartCoroutine(shoot());
         }
 
     }
+
+    IEnumerator rotate90()
+    {
+        transform.Rotate(0, 0, 90);
+        if (transform.rotation.z == 360)
+        {
+            transform.rotation.Set(0, 0, 0, 0);
+        }
+
+        yield return new WaitForSeconds(.5F);
+
+    }
+
+
+
+
+
 
     IEnumerator shoot()
 
     {
 
-
         reflectionRay(firepoint.position, firepoint.up, lenghtRay);
+        yield return new WaitForSeconds(.5f);
 
-        yield return new WaitForSeconds(.8f);
         clean();
     }
+
+    RaycastHit hit;
+    Vector2 inputRay;
+    Vector2 reflectiveRay;
 
 
     public void reflectionRay(Vector2 pos, Vector2 direction, int reflections)
@@ -69,7 +108,6 @@ public class Weapon : MonoBehaviour
 
             if (hit.transform.tag == "Player")
             {
-                Debug.Log("entro");
                 if (data.turnos >0)
                 {
                 data.turnos--;
@@ -93,6 +131,7 @@ public class Weapon : MonoBehaviour
         line.enabled = true;
 
     }
+
     IEnumerator reflejoReflector(Vector2 pos, Vector2 direction, RaycastHit2D hit, int reflections) {
         direction = Vector2.Reflect(direction, hit.normal);
         //reflector = hitInfo.transform.GetComponent<Reflector>();

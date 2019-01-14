@@ -14,15 +14,15 @@ MonoBehaviour:
   ancho: 10
   alto: 5
   puntajito: 0
-  disparo: 0
+  disparo: 1
   turnos: 5
-  recolectables: 4
+  recolectables: 8
   tiempoxTurno: 8
   obstaculos: 4
   nivel: 0
   x: 0
   y: 0
   lvls:
-  - {fileID: 21300000, guid: cf7f558631d232246a8d1a376014db3b, type: 3}
-  - {fileID: 21300000, guid: be0ed5d76b402274f806664e54c224fa, type: 3}
-  - {fileID: 21300000, guid: 9f9f57621d5c5014caced8c0f563d404, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

@@ -36,7 +36,31 @@ public class ControlMove : MonoBehaviour
     {
         movimientos = new int[5];
         vectores = data.getVectors();
-        matriz = data.getmatriz();
+        if (gameObject.scene.name.Contains("1"))
+        {
+            matriz = data.getmatriz(1);
+
+        }
+        else if (gameObject.scene.name.Contains("2"))
+        {
+            matriz = data.getmatriz(2);
+
+        }
+        else if (gameObject.scene.name.Contains("3"))
+        {
+            matriz = data.getmatriz(3);
+
+        }
+        else if (gameObject.scene.name.Contains("4"))
+        {
+            matriz = data.getmatriz(4);
+
+        }
+        else
+        {
+            matriz = data.getmatriz(0);
+
+        }
         x = data.x;
         y = data.y;
     }
@@ -89,7 +113,7 @@ public class ControlMove : MonoBehaviour
 
             if (y + 1 < data.alto && personaje.getmV() == 1)
             {
-                if (matriz[y + 1, x] == 0 || matriz[y + 1, x] == 3)
+                if (matriz[y + 1, x] == 0 || matriz[y + 1, x] == 3 || matriz[y + 1, x] == 8)
                 {
                     y += 1;
                     matriz[y, x] = 1;
@@ -99,7 +123,7 @@ public class ControlMove : MonoBehaviour
             }
             else if (y - 1 > -1 && personaje.getmV() == -1)
             {
-                if (matriz[y - 1, x] == 0 || matriz[y - 1, x] == 3)
+                if (matriz[y - 1, x] == 0 || matriz[y - 1, x] == 3 || matriz[y - 1, x] == 8)
                 {
 
                     y -= 1;
@@ -110,7 +134,7 @@ public class ControlMove : MonoBehaviour
 
             if (x + 1 < data.ancho && personaje.getmH() == 1)
             {
-                if (matriz[y, x + 1] == 0 || matriz[y, x + 1] == 3)
+                if (matriz[y, x + 1] == 0 || matriz[y, x + 1] == 3 || matriz[y, x + 1] == 8)
                 {
                     x += 1;
                     matriz[y, x] = 1;
@@ -120,7 +144,7 @@ public class ControlMove : MonoBehaviour
             }
             else if (x - 1 > -1 && personaje.getmH() == -1)
             {
-                if (matriz[y, x - 1] == 0 || matriz[y, x - 1] == 3)
+                if (matriz[y, x - 1] == 0 || matriz[y, x - 1] == 3 || matriz[y, x - 1] == 8)
                 {
 
                     x -= 1;
@@ -163,7 +187,7 @@ public class ControlMove : MonoBehaviour
                 }
             }
 
-            if (x + 1 < data.ancho && movimientos[i] == 4)
+            if (x + 1 < data.ancho && movimientos[i] == 5)
             {
                 if (matriz[y, x + 1] == 0 || matriz[y, x + 1] == 3)
                 {
@@ -173,7 +197,7 @@ public class ControlMove : MonoBehaviour
 
                 }
             }
-            else if (x - 1 > -1 && movimientos[i] == 5)
+            else if (x - 1 > -1 && movimientos[i] == 4)
             {
                 if (matriz[y, x - 1] == 0 || matriz[y, x - 1] == 3)
                 {
