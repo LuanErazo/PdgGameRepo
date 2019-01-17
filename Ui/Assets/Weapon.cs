@@ -108,15 +108,7 @@ public class Weapon : MonoBehaviour
 
             if (hit.transform.tag == "Player")
             {
-                if (data.turnos >0)
-                {
-                data.turnos--;
-
-                }
-                else
-                {
-                    data.turnos = 0;
-                }
+                hit.transform.GetComponent<Pj>().setGameOver(true);
             }
 
 

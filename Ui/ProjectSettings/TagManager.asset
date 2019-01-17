@@ -8,6 +8,7 @@ TagManager:
   - enemigos
   - reflector
   - laser
+  - Puerta
   layers:
   - Default
   - TransparentFX

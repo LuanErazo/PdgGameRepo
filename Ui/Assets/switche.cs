@@ -8,7 +8,7 @@ public class switche : MonoBehaviour {
      public SpriteRenderer off;
     public GameObject puerta;
 
-    private bool puertaActive = false;
+    public bool puertaActive = false;
     private int id;
 
 

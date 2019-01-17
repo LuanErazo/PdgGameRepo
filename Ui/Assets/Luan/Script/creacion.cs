@@ -7,7 +7,6 @@ public class creacion : MonoBehaviour
 {
 
     public LevelManagementData data;
-    public RecolectableObstaculos imgs;
     public GameObject recolectable;
     public GameObject obstaculo;
     public GameObject laser;
@@ -27,35 +26,8 @@ public class creacion : MonoBehaviour
     private void Awake()
     {
         vectores = data.getVectors();
-        imgObs = imgs.Obstaculos;
 
-        if (gameObject.scene.name.Contains("1"))
-        {
-        matriz = data.getmatriz(1);
-
-        } else if (gameObject.scene.name.Contains("2"))
-        {
-            matriz = data.getmatriz(2);
-
-        }
-        else if (gameObject.scene.name.Contains("3"))
-        {
-            matriz = data.getmatriz(3);
-
-        }
-        else if (gameObject.scene.name.Contains("4"))
-        {
-            matriz = data.getmatriz(4);
-
-        }
-        else
-        {
-            matriz = data.getmatriz(0);
-
-        }
-
-
-        data.contarRecolectables(matriz);
+        //data.contarRecolectables(matriz);
 
 
     }
@@ -64,7 +36,7 @@ public class creacion : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        crearTiles();
+        //crearTiles();
         // data.creacion();
         if (gameObject.scene.name.Contains("1"))
         {

@@ -20,16 +20,18 @@ public class LevelManagementData : ScriptableObject {
     private int[] recolectPuntos = new int[3];
 
     public int turnos;
-    public int recolectables =1;
+    public int recolectables = 1;
     public int tiempoxTurno;
     public int obstaculos;
     public int nivel;
     public int x;
     public int y;
 
+    public static int turnosS;
+
     private int idPuerta;
     private int idpuertaTemp = -1;
-   
+
     public Sprite[] lvls = new Sprite[3];
 
     private int[,] matrizRef;
@@ -39,46 +41,13 @@ public class LevelManagementData : ScriptableObject {
 
     private int[] puertas;
 
-
-
-
-
-
-    private int[,] matrizLv1 = new int[5, 10] {{ 0, 0, 0, 0, 0, 0, 0, 0, 3, 2},
-                                               { 2, 2, 0, 3, 0, 2, 0, 0, 0, 2},
-                                               { 3, 0, 0, 2, 0, 3, 0, 0, 0, 2},
-                                               { 2, 3, 0, 2, 0, 2, 2, 3, 0, 2},
-                                               { 3, 0, 2, 3, 0, 0, 0, 0, 2, 2}};
-
-    private int[,] matrizLv2 = new int[5, 10] {{ 0, 0, 0, 0, 3, 0, 2, 3, 0, 0},
-                                               { 0, 0, 2, 0, 0, 0, 2, 0, 0, 0},
-                                               { 0, 0, 0, 0, 0, 0, 7, 0, 3, 0},
-                                               { 0, 0, 2, 0, 0, 0, 2, 0, 0, 0},
-                                               { 0, 0, 0, 0, 0, 0, 2, 0, 0, 0} };
-
-    private int[,] matrizLv3 = new int[5, 10] {{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                                               { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                                               { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                                               { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                                               { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
-
-    private int[,] matrizLv4 = new int[5, 10] {{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                                               { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                                               { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                                               { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                                               { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0} };                                         
     private void OnEnable()
     {
+        turnosS = turnos;
+        recolectables = 1;
         disparo = false;
         idpuertaTemp = -1;
-        if (recolectables <=0)
-        {
-            recolectables = 4;
-        }
-        if (turnos <= 0)
-        {
-            turnos = 5;
-        }
+        turnos = 0;
         cambio = false;
         pjPuntos = puntajito;
         matrizRef = new int[alto, ancho];
@@ -118,10 +87,10 @@ public class LevelManagementData : ScriptableObject {
             }
 
             //--------------------------------------Creacion mapa-------------------------
-            
+
         }
 
-        puertas = new int[num*2];
+        puertas = new int[num * 2];
         idPuerta = num;
         num = 0;
 
@@ -156,7 +125,7 @@ public class LevelManagementData : ScriptableObject {
                 {
                     cont++;
                 }
-                
+
 
             }
         }
@@ -168,7 +137,6 @@ public class LevelManagementData : ScriptableObject {
         idpuertaTemp++;
         return idpuertaTemp;
     }
-
 
 
     public void creacion() {
@@ -309,32 +277,6 @@ public class LevelManagementData : ScriptableObject {
         return vectores;
     }
 
-    public int[,] getmatriz(int id)
-    {
-        if (id == 1)
-        {
-            return matrizLv1;
-        }
-        else if (id == 2)
-        {
-            return matrizLv2;
-        }
-        else if (id == 3)
-        {
-            return matrizLv3;
-
-        }
-        else if (id == 4)
-        {
-            return matrizLv4;
-
-        }
-        else
-        {
-        return matrizRef;
-
-        }
-    }
 
   
     public void setMatriz(int[,] matriz)
@@ -342,6 +284,9 @@ public class LevelManagementData : ScriptableObject {
         this.matrizRef = matriz;
     }
 
+    public static int getSturnos() {
+        return turnosS;
+    }
 
     public int[] getPuntos()
     {

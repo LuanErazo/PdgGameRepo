@@ -36,31 +36,6 @@ public class ControlMove : MonoBehaviour
     {
         movimientos = new int[5];
         vectores = data.getVectors();
-        if (gameObject.scene.name.Contains("1"))
-        {
-            matriz = data.getmatriz(1);
-
-        }
-        else if (gameObject.scene.name.Contains("2"))
-        {
-            matriz = data.getmatriz(2);
-
-        }
-        else if (gameObject.scene.name.Contains("3"))
-        {
-            matriz = data.getmatriz(3);
-
-        }
-        else if (gameObject.scene.name.Contains("4"))
-        {
-            matriz = data.getmatriz(4);
-
-        }
-        else
-        {
-            matriz = data.getmatriz(0);
-
-        }
         x = data.x;
         y = data.y;
     }
@@ -70,7 +45,7 @@ public class ControlMove : MonoBehaviour
     {
 
         serial = GetComponent<SerialController>();
-        pj.transform.position = vector(vectores[y, x]);
+        //pj.transform.position = vector(vectores[y, x]);
         personaje = pj.GetComponent<Pj>();
 
         serial.SendSerialMessage("A");
@@ -81,7 +56,7 @@ public class ControlMove : MonoBehaviour
     {
         if (gameOver() == false)
         {
-            moverInput();
+            //moverInput();
             if (llegada >= 5)
             {
                 mover = true;
@@ -161,6 +136,20 @@ public class ControlMove : MonoBehaviour
             data.disparo = !data.disparo;
             personaje.setBmove(false);
         
+        }
+    }
+
+
+    private void moverTiles()
+    {
+
+        if (personaje.getBmove())
+        {
+
+
+       
+            personaje.setBmove(false);
+
         }
     }
 
