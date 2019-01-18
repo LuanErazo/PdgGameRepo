@@ -30,6 +30,7 @@ MonoBehaviour:
       - GameModes
       - inicio
       - Instrucciones
+      - loadScreen
       - Niveles
       - Obstaculos
       isExpanded:
@@ -93,6 +94,7 @@ MonoBehaviour:
       - Atras
       - Construir
       - Jugar
+      - nivel
       - retry
       - Siguiente
       isExpanded:
@@ -116,6 +118,7 @@ MonoBehaviour:
     - Uncategorized
   DatabaseUICanvases:
   - MasterCanvas
+  - LoadScreen
   DatabaseUISounds:
     sounds:
     - {fileID: 11400000, guid: 59de0091c9523d146a71bf3e2f187753, type: 2}

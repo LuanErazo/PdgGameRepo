@@ -37,13 +37,13 @@ public class LevelManagementData : ScriptableObject {
     private int[,] matrizRef;
 
     private float timer;
-    private bool cambio;
+    public bool cambio;
 
     private int[] puertas;
 
     private void OnEnable()
     {
-        turnosS = turnos;
+        turnosS = turnos; 
         recolectables = 1;
         disparo = false;
         idpuertaTemp = -1;
@@ -170,6 +170,10 @@ public class LevelManagementData : ScriptableObject {
             }
 
         }
+    }
+
+    public void resetTime(int time) {
+        timer = (time*60);
     }
 
 

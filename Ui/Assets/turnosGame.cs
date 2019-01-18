@@ -6,6 +6,7 @@ using TMPro;
 public class turnosGame : MonoBehaviour {
 
     private TextMeshProUGUI myText;
+    public LevelManagementData data;
     // Use this for initialization
     void Start()
     {
@@ -19,7 +20,7 @@ public class turnosGame : MonoBehaviour {
         if (transform.parent.transform.parent.gameObject.activeSelf)
         {
 
-            myText.SetText(LevelManagementData.getSturnos().ToString());
+            myText.SetText(data.turnos.ToString());
         }
 
     }

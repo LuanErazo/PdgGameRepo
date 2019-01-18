@@ -47,6 +47,11 @@ public class Pj : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (llegada == 4)
+        {
+            send = true;
+
+        }
 
         //We do nothing if the player is still moving.
         if (Bmove) return;
@@ -57,8 +62,8 @@ public class Pj : MonoBehaviour
         if (mH != 0)
             mV = 0;
 
-
-        if (!gameOver())
+        gameOver();
+        if (!gameOverB)
         {
         //If there's a direction, we are trying to move.
         if (mH != 0 || mV != 0)
@@ -92,7 +97,7 @@ public class Pj : MonoBehaviour
         }
 
         if (send)
-        {   
+        {
 
             StartCoroutine(movimientoArdu());
             llegada = 0;
@@ -130,6 +135,10 @@ public class Pj : MonoBehaviour
                 return false;
         }
         else if (coll.tag == "laser")
+        {
+            return false;
+        }
+        else if (coll.tag == "reflector")
         {
             return false;
         }
@@ -177,8 +186,8 @@ public class Pj : MonoBehaviour
         while (cont <5)
         {
             movimientoIndividualTIle(cont,time);
-            yield return new WaitForSeconds(time);
             cont++;
+            yield return new WaitForSeconds(time);
         }
     }
 
@@ -193,24 +202,30 @@ public class Pj : MonoBehaviour
         {
             mV = 1;
             mySprite = sprites[0];
-
+            Debug.Log("el movimiento de" + movido + "arriba");
         }
         else if (movimientos[movido] == 3) // abajo
         {
             mV = -1;
             mySprite = sprites[1];
+            Debug.Log("el movimiento de" + movido + "abajo");
+
         }
 
         if (movimientos[movido] == 5) //derecha
         {
             mH = 1;
-            mySprite = sprites[2];
+            mySprite = sprites[3];
+            Debug.Log("el movimiento de"+ movido + "derecha");
+
 
         }
         else if (movimientos[movido] == 4) // izquierdaa
         {
             mH = -1;
-            mySprite = sprites[3];
+            mySprite = sprites[2];
+            Debug.Log("el movimiento de" + movido + "izq");
+
 
         }
 
@@ -229,8 +244,10 @@ public class Pj : MonoBehaviour
             else
                 StartCoroutine(BlockedMovement(targetCell));
         }
-    
+        else
+            StartCoroutine(BlockedMovement(targetCell));
 
+        Debug.Log(movido);
         data.disparo = !data.disparo;
     }
 
@@ -364,8 +381,8 @@ public class Pj : MonoBehaviour
 
         if (Input.GetButtonDown("envio"))
         {
-            serial.SendSerialMessage("A");
-
+            //serial.SendSerialMessage("A");
+            send = true;
         }
 
         //---------------------------------------------------------------------
@@ -386,18 +403,34 @@ public class Pj : MonoBehaviour
         else
         {
             Debug.Log("Message arrived: " + message);
+            //Debug.Log(message);
+
             if (message.ToString().Length == 1)
             {
-                if (llegada < 5)
-                {
-                    movimientos[llegada] = int.Parse(message);
-                    llegada++;
-                }
-                if (llegada == movimientos.Length)
-                    send = true;
+                //if (llegada < 5)
+                //{
+                //    movimientos[llegada] = int.Parse(message);
+                //    llegada++;
+                //}
 
 
             }
+
+
+            if (message.Contains(":"))
+            {
+            string s = message.ToString();
+
+            string[] a = s.Split(':');
+
+            int senderId = int.Parse(a[0]);
+            int valor =int.Parse(a[1]);
+
+                movimientos[senderId-1] = valor;
+
+
+            }
+
 
 
         }
@@ -405,15 +438,22 @@ public class Pj : MonoBehaviour
     }
 
 
-    private bool gameOver()
+    private void gameOver()
     {
-        if (data.tiempo().Equals("00:00") || data.getRecolectables() <= 0)
+        if (data.tiempo().Equals("00:00"))
         {
-            gameover.SetActive(true);
             gameOverB = true;
         }
-        else gameOverB = false;
-        return gameOverB;
+        else if (data.getRecolectables() <= 0)
+        {
+            gameOverB = true;
+        }
+
+        if (gameOverB)
+        {
+            gameover.SetActive(true);
+            data.cambio = false;
+        }
     }
 
     public void setGameOver(bool gameover) {
